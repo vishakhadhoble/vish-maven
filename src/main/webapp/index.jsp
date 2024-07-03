@@ -1,12 +1,7 @@
 <html>
+<title>Vishakha</title>
 <body>
-<h1><font color='red'> Hai <font></h1>
-
-<a href="http://www.youtube.com/@LearnWithKASTRO">Click Here To See My YouTube Channel</a>
-  
-  <h2> Thank you</h2>
-  
-  <h3> Happy Learning!!! </h3>
-
+<h1>Vishakha Project</h1>
+<h4>Deployed to Tomcat</h4>
 </body>
 </html>
