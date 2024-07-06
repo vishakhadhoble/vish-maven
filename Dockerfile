@@ -1,11 +1,14 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:11-jre-slim
+# Use an official Tomcat runtime as a parent image
+FROM tomcat:9.0-jdk11-openjdk
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /usr/local/tomcat/webapps/
 
-# Copy the JAR file into the container at /app
-COPY target/vish-app.jar /app/vish-app.jar
+# Copy the WAR file to the Tomcat webapps directory
+COPY target/vish-app.war ./ROOT.war
 
-# Run the JAR file
-ENTRYPOINT ["java", "-jar", "vish-app.jar"]
+# Expose port 8080 to the outside world
+EXPOSE 8080
+
+# Run Tomcat
+CMD ["catalina.sh", "run"]
