@@ -1,8 +1,11 @@
-# Use the official Tomcat base image
-FROM tomcat:9.0
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:11-jre-slim
 
-# Expose port 8080 to the outside world
-EXPOSE 8080
+# Set the working directory in the container
+WORKDIR /app
 
-# Copy the war file to the webapps directory of Tomcat
-COPY app.war /usr/local/tomcat/webapps/
+# Copy the JAR file into the container at /app
+COPY target/vish-app.jar /app/vish-app.jar
+
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "vish-app.jar"]
